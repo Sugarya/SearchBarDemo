@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.sugary.searchviewtest.activity.MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:titleTextColor="@android:color/white"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <Button
+        android:id="@+id/tv_main_gmail"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="仿GoogleMail搜索"
+        android:onClick="onGoogleMailBtnClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/tv_main_google_play"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="仿GooglePlay搜索"
+        android:onClick="onGooglePlayBtnClick"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_gmail"
+        app:layout_constraintLeft_toLeftOf="@id/tv_main_gmail"
+        app:layout_constraintRight_toRightOf="@id/tv_main_gmail"
+        />
+
+    <Button
+        android:id="@+id/tv_main_youtube"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="仿Youtube搜索"
+        android:onClick="onYoutubeBtnClick"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_google_play"
+        app:layout_constraintLeft_toLeftOf="@id/tv_main_google_play"
+        app:layout_constraintRight_toRightOf="@id/tv_main_google_play"
+        />
+
+</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

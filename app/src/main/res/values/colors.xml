@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#ff6d4c41</color>
+    <color name="colorPrimary">#ff795548</color>
+    <color name="colorAccent">#ff8d6e63</color>
+
+
+    <color name="emailColorPrimaryDark">#d32f2f</color>
+    <color name="emailColorPrimary">#e53935</color>
+    <color name="emailColorAccent">#ff5252</color>
+
+    <color name="playColorPrimaryDark">#388e3c</color>
+    <color name="playColorPrimary">#4caf50</color>
+    <color name="playColorAccent">#388e3c</color>
+
+    <color name="youtubeColorPrimaryDark">#b81e1c</color>
+    <color name="youtubeColorPrimary">#e32524</color>
+    <color name="youtubeColorAccent">#b81e1c</color>
+
+
+    <color name="status_bar_gray">#aae0e0e0</color>
+
+
+    <color name="app_bar_color_0">#388e3c</color>
+    <color name="app_bar_color_1">#e9ad51</color>
+    <color name="app_bar_color_2">#dec85e</color>
+    <color name="app_bar_color_3">#c64f38</color>
+</resources>
