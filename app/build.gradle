@@ -21,11 +21,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
+        transitive = true;
+    }
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
     compile 'com.android.support:design:25.3.0'
     compile 'com.android.support:support-v4:25.3.0'
-    compile('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
-        transitive = true;
-    }
 }

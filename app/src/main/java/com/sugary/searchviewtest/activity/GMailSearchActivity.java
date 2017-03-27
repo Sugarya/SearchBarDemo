@@ -13,9 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.sugary.searchviewtest.R;
 import com.sugary.searchviewtest.utils.KeyboardUtils;
@@ -30,9 +32,10 @@ public class GMailSearchActivity extends AppCompatActivity {
 
     private EditText mEdSearch;
     private RevealFrameLayout mRevealFrameLayout;
-
+    private RelativeLayout mRlSearchBar;
     private boolean mIsShowSearch = false;
     private LinearLayout mLlSearchBar;
+    private Toolbar mToolbar;
 
 
     public static Intent getCallingIntent(Context context){
@@ -49,15 +52,46 @@ public class GMailSearchActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        registerView();
+        initToolbar();
+        adaptStatusBarAndSearchBar();
+    }
+
+    private void initToolbar() {
+        mToolbar.setNavigationIcon(R.drawable.ic_menu_24dp);
+        mToolbar.setTitle("仿Gmail邮箱搜索");
+        setSupportActionBar(mToolbar);
+    }
+
+    private void registerView() {
         mRevealFrameLayout = (RevealFrameLayout) findViewById(R.id.rfl_gmail_main);
+        mRlSearchBar = (RelativeLayout)findViewById(R.id.rl_gmail_search_bar);
         mEdSearch = (EditText) findViewById(R.id.ed_header_search);
-
         mLlSearchBar = (LinearLayout)findViewById(R.id.ll_search_bar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_24dp);
-        toolbar.setTitle("仿Gmail邮箱搜索");
-        setSupportActionBar(toolbar);
+
+    /**
+     * Android 4.4时，设置状态栏透明，来适配标题栏,搜索栏
+     */
+    private void adaptStatusBarAndSearchBar() {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
+
+                WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+                localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+
+                int toolbarHeight = (int)getResources().getDimension(R.dimen.tool_bar_height_adapt);
+                ViewGroup.LayoutParams layoutParams = mToolbar.getLayoutParams();
+                layoutParams.height = toolbarHeight;
+
+                int toolbarPaddingTop = (int) getResources().getDimension(R.dimen.tool_bar_padding_top);
+                mToolbar.setPadding(0, toolbarPaddingTop, 0, 0);
+
+                int marginTopValue = (int) getResources().getDimension(R.dimen.tool_bar_padding_top);
+                RelativeLayout.MarginLayoutParams marginLayoutParams = (RelativeLayout.MarginLayoutParams)mRlSearchBar.getLayoutParams();
+                marginLayoutParams.topMargin = marginTopValue;
+        }
     }
 
 

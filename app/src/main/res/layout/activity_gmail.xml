@@ -17,12 +17,13 @@
         <io.codetail.widget.RevealFrameLayout
             android:id="@+id/rfl_gmail_main"
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
+            android:layout_height="wrap_content"
             >
 
             <RelativeLayout
+                android:id="@+id/rl_gmail_search_bar"
                 android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
+                android:layout_height="wrap_content"
                 >
 
                 <LinearLayout

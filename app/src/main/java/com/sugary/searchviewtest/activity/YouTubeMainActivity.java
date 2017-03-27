@@ -79,13 +79,14 @@ public class YouTubeMainActivity extends AppCompatActivity {
         initTabLayout();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void initShareElementTransition() {
-        Transition exitTransition = TransitionInflater.from(this).inflateTransition(R.transition.exit);
-        getWindow().setSharedElementReenterTransition(new Fade(Fade.IN));
-        getWindow().setSharedElementExitTransition(new Fade(Fade.OUT));
-        getWindow().setSharedElementEnterTransition(new Fade(Fade.IN));
-        getWindow().setSharedElementReturnTransition(new Fade(Fade.OUT));
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Transition exitTransition = TransitionInflater.from(this).inflateTransition(R.transition.exit);
+            getWindow().setSharedElementReenterTransition(new Fade(Fade.IN));
+            getWindow().setSharedElementExitTransition(new Fade(Fade.OUT));
+            getWindow().setSharedElementEnterTransition(new Fade(Fade.IN));
+            getWindow().setSharedElementReturnTransition(new Fade(Fade.OUT));
+        }
     }
 
     private void initToolbar() {

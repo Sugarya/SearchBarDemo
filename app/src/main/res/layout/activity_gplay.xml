@@ -20,6 +20,7 @@
             >
 
             <RelativeLayout
+                android:id="@+id/rl_gplay_search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 >
